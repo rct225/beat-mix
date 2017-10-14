@@ -4,20 +4,36 @@ let snares = new Array(16).fill(false);
 let hiHats = new Array(16).fill(false);
 let rideCymbals = new Array(16).fill(false);
 
-function toggleDrum(drums, drumIndex) {
-  if (!drums) {
+function toggleDrum(drumsArrayName, drumArrayIndex) {
+  if (!drumsArrayName) {
     return;
   }
 
-  if (!['kicks', 'snares', 'hiHats', 'rideCymbals'].includes(drums)) {
+  if (!['kicks', 'snares', 'hiHats', 'rideCymbals'].includes(drumsArrayName)) {
     return;
   }
 
-  if (drumIndex < 0 || drumIndex > drums.length - 1) {
+  drumsArray = eval(drumsArrayName);
+
+  if (drumArrayIndex < 0 || drumArrayIndex > drumsArray.length - 1) {
     return;
   }
 
-  drumsArray = eval(drums);
+  drumsArray[drumArrayIndex] = !(drumsArray[drumArrayIndex]);
 
-  drumsArray[drumIndex] = !(drumsArray[drumIndex])
+}
+
+function clear(drumsArrayName) {
+  if (!drumsArrayName) {
+    return;
+  }
+
+  if (!['kicks', 'snares', 'hiHats', 'rideCymbals'].includes(drumsArrayName)) {
+    return;
+  }
+
+  drumsArray = eval(drumsArrayName);
+
+  drumsArray.fill(false);
+  
 }
