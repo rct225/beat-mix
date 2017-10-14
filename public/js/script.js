@@ -35,5 +35,22 @@ function clear(drumsArrayName) {
   drumsArray = eval(drumsArrayName);
 
   drumsArray.fill(false);
-  
+
+}
+
+function invert(drumsArrayName) {
+  if (!drumsArrayName) {
+    return;
+  }
+
+  if (!['kicks', 'snares', 'hiHats', 'rideCymbals'].includes(drumsArrayName)) {
+    return;
+  }
+
+  drumsArray = eval(drumsArrayName);
+
+  for (var i = 0; i < drumsArray.length; i++) {
+    drumsArray[i] = !(drumsArray[i]);
+  }
+
 }
